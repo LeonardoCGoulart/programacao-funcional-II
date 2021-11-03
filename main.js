@@ -136,3 +136,17 @@ const dados = arrObj.map(
 console.log(dados[0]);
 
 // ExercÃ­cio 5: use a funÃ§Ã£o composta do Ex. 4 para transformar os nÃºmeros em 'arr'
+
+const dados2 = arrObj.map(
+    R.pipe(
+        isEvenArrow(),
+        positiveArrow(),
+        isOddArrow(),
+        negativeArrow(),
+        isZeroArrow(),
+        isPrimeArrow(),
+    )
+)
+
+console.log("dados 2:");
+console.log(dados2);
