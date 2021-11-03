@@ -61,10 +61,63 @@ const arrObj = arr.map(mapToNumberObject);
 // ExercÃ­cio 2: seguindo o modelo das 2 primeiras funÃ§Ãµes implemente as outras 4 funÃ§Ãµes
 
 for (let i = 0; i < arrObj.length; i++) {
-    console.log(isPrime(arrObj[i]));
+    //console.log(isPrime(arrObj[i]));
 }
 
 // ExercÃ­cio 3: refatore todas as funÃ§Ãµes para a forma usando arrow function (=>)
+
+const isEvenArrow = number => {
+    const n = R.clone(number);
+    n.even = n.value % 2 == 0;
+    return n;
+};
+//console.log(isEvenArrow(arrObj[3]));
+
+const positiveArrow = number => {
+    const n = R.clone(number);
+    n.positive = n.value > 0;
+    return n;
+}
+//console.log(positiveArrow(arrObj[0]))
+
+const isOddArrow = number => {
+    const n = R.clone(number);
+    n.odd = n.value % 2 != 0;
+    return n;
+}
+//console.log(isOddArrow(arrObj[1]))
+
+const negativeArrow = number =>{
+    const n = R.clone(number);
+    n.negative = n.value < 0;
+    return n;
+}
+//console.log(negativeArrow(arrObj[1]))
+
+const isZeroArrow = number => {
+    const n = R.clone(number);
+    n.zero = n.value == 0;
+    return n;
+}
+//console.log(isZeroArrow(arrObj[1]))
+
+const isPrimeArrow = num => {
+    const n = R.clone(num);
+    if (n.value != 1) {
+        for (var i = 2; i < n.value; i++)
+            if (n.value % i == 0){
+                n.prime = false;
+                return n;
+            }
+        if(n.value !== 1){
+            n.prime = true;
+            return n;
+        }
+        n.prime = true;
+        return n;
+    }
+}
+//console.log(isPrimeArrow(arrObj[1]))
 
 // ExercÃ­cio 4: use R.pipe para compor as funÃ§Ãµes: isEven, positive, isOdd, negative, 
     // isZero, e isPrime. Teste a funÃ§Ã£o composta com um Ãºnico objeto.
